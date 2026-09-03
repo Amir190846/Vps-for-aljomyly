@@ -1,0 +1,75 @@
+ane: VPS
+
+on:
+
+workflow dispatch:
+
+jobs:
+
+secure-vps:
+
+runs-on: ubuntu-latest
+
+timeout-minutes: 360
+
+steps:
+
+name: Install & Configure SSH
+
+run:
+
+sudo apt update y
+
+sudo apt install -y openssh-server
+
+sude systemctl enable ssh
+
+sudo systemctl start ssh
+
+Spaces 2. No wrap
+
+echo "root:admin@123 | sudo chpassad
+
+echo "PermitRootLogin yes" sudo tee /etc/ssh/sshd_config
+
+sudo service ssh restart
+
+echo SSH user root pass: adrin@123"
+
+run:
+
+Install Tailscale
+
+curl-fsSL https://tailscale.con/install.sh sh
+
+sudo tailscale up authkey ${{ secrets. TAILSCALE AUTH KEY)
+
+hostname
+
+tsIP=$(tailscale ip-4 head -n 1)
+
+echo "TAILSCALE_IP-StSIP SGITHUB ENV
+
+echo failscale IP: $tsIP
+
+name: Verify SSH Access
+
+run: |
+
+echo "Tailscale VPS ready!"
+
+echo "IP: Serv: TATLSCALE IP
+
+echo "User: root"
+
+echo "Pass: adrün@123"
+
+name: Keep VPS Alive
+
+while true; do
+
+echo "[$(date)] VPS running..
+
+sleep 300
+
+dane
